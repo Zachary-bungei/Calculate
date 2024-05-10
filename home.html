@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+
+<title>online calculator</title>
+</head>
+
+
+<body>
+	<div id="calculator_container">
+		<h1>Calculator</h1>
+		<select name="type of calculation" id="typeofcalculation">
+			<optgroup label="choose calculation">
+			<option value="addition">addition</option>
+			<option value="subtraction">subtraction</option>
+			<option value="multiplication">multiplication</option>
+			<option value="division">division</option>
+			<option value="power">power</option>
+			<option value="root">root</option>
+		</select>
+		<a href="https://sendcomment.simdif.com/contact.html">comment</a>
+				<form id="addition">
+			<p id="dis_add">answer +</p><br>
+			<input type="number" placeholder="Enter the fisrt value" id="one_add" ><br>
+			<input type="number" placeholder="Enter the second value" id="two_add" ><br>
+			<button type="submit" onclick="calculate_add()">=</button>
+		</form>
+		<form id="subtraction">
+			<p id="dis_sub">answer - </p>
+			<input type="number" id="one_sub" placeholder="Enter the fisrt value"><br>
+			<input type="number" id="two_sub" placeholder="Enter the second value"><br>
+			<button type="submit" onclick="calculate_sub()">=</button><br>
+			
+		</form>
+		<form id="multiplication">
+			<p id="dis_mult">answer * </p>
+			<input type="number" id="one_mult" placeholder="Enter the fisrt value"><br>
+			<input type="number" id="two_mult" placeholder="Enter the second value"><br>
+			<button type="submit" onclick="calculate_mult()">=</button><br>
+
+		</form>
+		<form id="division">
+			<p id="dis_divi">answer d </p>
+			<input type="number" id="one_div" placeholder="Enter the fisrt value"><br>
+			<input type="number" id="two_div" placeholder="Enter the second value"><br>
+			<button type="submit" onclick="calculatediv()">=</button><br>
+
+		</form>
+		<form id="power">
+			<p id="dis_pow">answer p</p>
+			<input type="number" id="one_pow" placeholder="Enter the base value"><br>
+			<input type="number" id="two_pow" placeholder="Enter the power value"><br>
+			<button type="submit" onclick="calculate_pow()">=</button><br>
+
+		</form>
+		<form id="square">
+			<p id="disquare"> answer q</p><br>
+			<input type="number" id="square_one" placeholder="Enter squared value"><br>
+			<button type="submit" onclick="calculate_squ()">=</button>
+		</form>
+
+	</div><br>
+</body>
+<script src="main.js"></script>
+	<!--Tab to edit-->
+</py-script>
+
+</html>
