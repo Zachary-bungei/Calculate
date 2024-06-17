@@ -1,6 +1,6 @@
 window.onload = function() {
   if (!sessionStorage.getItem("urlCode")) {
-    const randomCode = Math.floor(Math.random() * 10000); // Generate a random 5-digit code
+    const randomCode = Math.floor(Math.random() * 199999999999800); // Generate a random 5-digit code
     sessionStorage.setItem("urlCode", randomCode); // Store the code in sessionStorage
     window.history.replaceState(null, null, "/page?code=" + randomCode); // Update the URL with the new code
   }
