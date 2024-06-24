@@ -14,7 +14,7 @@
 </head>
 
 
-<body>
+<body onload="welcome()">
 	<div id="calculator_container">
 		<h1>Calculator</h1>
 		<select name="type of calculation" id="typeofcalculation">
@@ -70,5 +70,29 @@
 	</div>
 </body>
 <script src="main.js"></script>
+<script>
+function welcome(){
+	name = prompt("enter your name:", "")
+	if (name == ""){
+		alert("Your have canclled!")
+		window.open()
+	}
+	else {
+		say = prompt("welcome! and say Hi!", "e.g_superb")
+		if (say == ""){
+			alert("you have cancelled")
+			window.open()
+		}
+		else if (say !== "e.g_superb"){
+			alert("thank you!" + " " + name)
+			
+		}
+		else{
+			alert("cancel, you use my words.")
+			window.open()
+		}
+	}
+}
+</script> 
 
 </html>
