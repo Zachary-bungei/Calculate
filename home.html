@@ -1,100 +1,99 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <link rel="icon" type="image" href="this.png">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="style.css">
-   <meta name="description" content="Welcome to CalculateExponent, your go-to online calculator for all types of calculations. Our versatile tool handles everything from basic arithmetic to complex scientific equations and financial calculations. Whether you're a student, professional, or math enthusiast, CalculateExponent is designed to make your calculations easy and accurate. With a user-friendly interface and advanced algorithms, you can trust our calculator to deliver precise results every time. Accessible on all devices, CalculateExponent ensures you can perform calculations anytime, anywhere. Plus, it's completely free to use. Join thousands of satisfied users who rely on CalculateExponent for their calculation needs. Experience the convenience and accuracy of our comprehensive calculator today!">
-  <meta name="keywords" content="calculator, zacharia">
-  <meta name="author" content="zacharia bungei">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
-
-        <title>online calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0a0a0a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            width: 300px;
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ffcc;
+        }
+        .screen {
+            width: 100%;
+            height: 50px;
+            text-align: right;
+            padding: 10px;
+            font-size: 1.5em;
+            background: #222;
+            border: none;
+            color: #00ffcc;
+            border-radius: 5px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 15px;
+            font-size: 1.2em;
+            background: #333;
+            border: none;
+            color: #00ffcc;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00ffcc;
+        }
+        button:active {
+            background: #00ffcc;
+            color: black;
+        }
+        .operator {
+            color: #ff00ff;
+        }
+    </style>
 </head>
-
-
-<body onload="welcome()">
-	<div id="calculator_container">
-		<h1>Calculator</h1>
-		<select name="type of calculation" id="typeofcalculation">
-			<optgroup label="choose calculation">
-			<option value="addition">addition</option>
-			<option value="subtraction">subtraction</option>
-			<option value="multiplication">multiplication</option>
-			<option value="division">division</option>
-			<option value="power">power</option>
-			<option value="root">root</option>
-		</select>
-		<a href="https://sendcomment.simdif.com/contact.html">comment</a>
-				<form id="addition">
-			<p id="dis_add">answer +</p><br>
-			<input type="number" placeholder="Enter the fisrt value" id="one_add" ><br>
-			<input type="number" placeholder="Enter the second value" id="two_add" ><br>
-			<button type="submit" onclick="calculate_add()">=</button>
-		</form>
-		<form id="subtraction">
-			<p id="dis_sub">answer - </p>
-			<input type="number" id="one_sub" placeholder="Enter the fisrt value"><br>
-			<input type="number" id="two_sub" placeholder="Enter the second value"><br>
-			<button type="submit" onclick="calculate_sub()">=</button><br>
-			
-		</form>
-		<form id="multiplication">
-			<p id="dis_mult">answer * </p>
-			<input type="number" id="one_mult" placeholder="Enter the fisrt value"><br>
-			<input type="number" id="two_mult" placeholder="Enter the second value"><br>
-			<button type="submit" onclick="calculate_mult()">=</button><br>
-
-		</form>
-		<form id="division">
-			<p id="dis_divi">answer d </p>
-			<input type="number" id="one_div" placeholder="Enter the fisrt value"><br>
-			<input type="number" id="two_div" placeholder="Enter the second value"><br>
-			<button type="submit" onclick="calculatediv()">=</button><br>
-
-		</form>
-		<form id="power">
-			<p id="dis_pow">answer p</p>
-			<input type="number" id="one_pow" placeholder="Enter the base value"><br>
-			<input type="number" id="two_pow" placeholder="Enter the power value"><br>
-			<button type="submit" onclick="calculate_pow()">=</button><br>
-
-		</form>
-		<form id="square">
-			<p id="disquare"> answer q</p><br>
-			<input type="number" id="square_one" placeholder="Enter squared value"><br>
-			<button type="submit" onclick="calculate_squ()">=</button>
-		</form>
-
-	</div>
+<body>
+    <div class="calculator">
+        <input type="text" class="screen" id="screen" disabled>
+        <div class="buttons">
+            <button onclick="clearScreen()">C</button>
+            <button onclick="appendValue('/')" class="operator">/</button>
+            <button onclick="appendValue('*')" class="operator">*</button>
+            <button onclick="appendValue('-')" class="operator">-</button>
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('+')" class="operator">+</button>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="calculateResult()" rowspan="2">=</button>
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('0')" colspan="2">0</button>
+            <button onclick="appendValue('.')">.</button>
+        </div>
+    </div>
+    <script>
+        function appendValue(value) {
+            document.getElementById('screen').value += value;
+        }
+        function clearScreen() {
+            document.getElementById('screen').value = '';
+        }
+        function calculateResult() {
+            try {
+                document.getElementById('screen').value = eval(document.getElementById('screen').value);
+            } catch {
+                document.getElementById('screen').value = 'Error';
+            }
+        }
+    </script>
 </body>
-<script src="main.js"></script>
-<script>
-function welcome(){
-	name = prompt("enter your name:", "")
-	if (name == ""){
-		alert("Your have canclled!")
-		window.open()
-	}
-	else {
-		say = prompt("welcome! and say Hi!", "e.g_superb")
-		if (say == ""){
-			alert("you have cancelled")
-			window.open()
-		}
-		else if (say !== "e.g_superb"){
-			alert("thank you!" + " " + name)
-			
-		}
-		else{
-			alert("cancel, you use my words.")
-			window.open()
-		}
-	}
-}
-	// window.history.pushState({}, '', 'https://www.wfghdjkl.com');
-</script> 
-
 </html>
