@@ -130,4 +130,10 @@ theselect.addEventListener("change", function (event) {
 		square.style.display = "none"
 	}
 })
+window.addEventListener('storage', (event) => {
+        if (event.key === 'beaconData') {
+            console.log("📥 Data received in JS Receiver:", JSON.parse(event.newValue));
+            alert("Received: " + event.newValue);
+        }
+  });
 
